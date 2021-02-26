@@ -84,7 +84,7 @@ function Send-emailByGraph
 function Get-TokenResponse
 {
     Param(
-        [Parameter(Mandatory=$true)]  $JTIuri_token,
+        [Parameter(Mandatory=$true)]  $uri_token,
         [Parameter(Mandatory=$true)]  $ClientID,
         [Parameter(Mandatory=$true)]  $ClientSecret
     )
@@ -97,7 +97,7 @@ function Get-TokenResponse
                   Client_Secret = $ClientSecret
                   }
 
-        $TokenResponse = Invoke-RestMethod -Uri $JTIuri_token `
+        $TokenResponse = Invoke-RestMethod -Uri $uri_token `
                                        -Method POST `
                                        -Body $TokenRequest
         return $TokenResponse
